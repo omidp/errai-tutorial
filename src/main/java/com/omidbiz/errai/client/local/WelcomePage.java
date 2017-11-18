@@ -19,32 +19,54 @@ package com.omidbiz.errai.client.local;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import org.jboss.errai.common.client.api.elemental2.IsElement;
 import org.jboss.errai.ui.nav.client.local.DefaultPage;
 import org.jboss.errai.ui.nav.client.local.Page;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
+import org.jboss.errai.ui.shared.api.annotations.EventHandler;
+import org.jboss.errai.ui.shared.api.annotations.ForEvent;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
 
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.Window;
 
-/**
- * The {@link DefaultPage} for this demo. This page observes
- * {@link LoggedInEvent LoggedInEvents} and {@link LoggedOutEvent
- * LoggedOutEvents} to update the displayed username.
- */
+import elemental2.dom.HTMLButtonElement;
+import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLInputElement;
+import elemental2.dom.MouseEvent;
+
+
 @Page(role = DefaultPage.class)
-@Templated("#root")
+@Templated
 @ApplicationScoped
-public class WelcomePage {
+public class WelcomePage implements IsElement
+{
 
-  private static final String ANONYMOUS = "anonymous";
-
-  @Inject
-  @DataField
-  private Button startButton;
-
-  @Inject
-  @DataField
-  private Label userLabel;
+    
+    @Inject
+    @DataField("root")
+    HTMLDivElement div;
+    
+    @Inject
+    @DataField("txt")
+    HTMLInputElement txt;
+    
+    
+    @Inject
+    @DataField("btn")
+    HTMLButtonElement btn;
+    
+    
+    @Override
+    public HTMLElement getElement()
+    {
+        return div;
+    }
+    
+    @EventHandler("btn")
+    public void onBtnClick(final @ForEvent("click") MouseEvent event)
+    {
+        Window.alert(txt.value);
+    }
 
 }

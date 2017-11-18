@@ -2,11 +2,11 @@
 <beans xmlns="http://xmlns.jcp.org/xml/ns/javaee">
 	<scan>
     <!-- These exclusions were added by Errai to avoid deploying client-side classes to the server -->
+    <exclude name = "com.omidbiz.errai.client.local.Elemental2Producer" />
     <exclude name = "com.omidbiz.errai.client.local.App" />
     <exclude name = "com.omidbiz.errai.client.local.WelcomePage" />
     <exclude name = "com.omidbiz.errai.client.local.JQueryProducer$JQueryArray" />
     <exclude name = "com.omidbiz.errai.client.local.JQueryProducer$JQueryElement" />
-    <exclude name = "com.omidbiz.errai.client.local.NavigationWrapper" />
     <exclude name = "com.omidbiz.errai.client.local.JQueryProducer" />
     <exclude name = "com.omidbiz.errai.client.local.JQueryProducer$JQuery" />
     <!-- End of Errai exclusions -->

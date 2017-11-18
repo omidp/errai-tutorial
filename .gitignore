@@ -19,3 +19,7 @@ src/main/webapp/css/jedlab-min.css
 src/main/webapp/dist/jedlab-min.js
 /target
 /bin
+/src/main/gwt-unitCache
+src/main/webapp/WEB-INF/lib
+.tern-project
+.errai/
